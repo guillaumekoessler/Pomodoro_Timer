@@ -1,0 +1,68 @@
+# =====================================================================
+#  Configuration du minuteur Pomodoro
+#  Couleurs au format "#RRGGBB". Après chaque modification :
+#      python pomodoro.py --apercu    pour vérifier le design en 1 seconde
+# =====================================================================
+
+[sessions]
+preparation = 10              # secondes de compte à rebours avant la 1re session (0 = aucun)
+travail = 25                  # minutes
+pause = 5                     # minutes
+cycles = 4                    # nombre de sessions de travail
+pause_longue = 0              # minutes (0 = pas de pause longue)
+pause_longue_tous_les = 4     # une pause longue après chaque N sessions de travail
+finir_par_pause = false       # true = la vidéo se termine par une pause
+duree_fin = 5                 # secondes affichant 00:00 à la fin
+
+[video]
+largeur = 1920
+hauteur = 1080
+fond = "#00FF00"              # vert d'incrustation (à sélectionner à la pipette dans CapCut)
+fps = 30                      # images/seconde de la vidéo finale
+fps_rendu = 10                # images réellement dessinées par seconde (10 suffit, bien plus rapide)
+codec = "h264"                # "h264" (fichier léger) ou "prores" (.mov lourd, bords plus nets à l'incrustation)
+
+[cercle]
+rayon = 300                   # pixels (au milieu du trait)
+epaisseur = 22                # pixels
+couleur_piste = "#2B2B2B"     # cercle de fond ; "" pour le masquer
+couleur_travail = "#FFFFFF"
+couleur_pause = "#FFB86B"
+couleur_pause_longue = "#8BE9FD"
+couleur_preparation = "#FFFFFF"
+sens = "vide"                 # "vide" : le cercle se vide ; "remplit" : il se remplit
+bouts_arrondis = true
+
+[texte]
+# Police des chiffres : chemin vers un .ttf/.otf (ex. "fonts/Poppins-Bold.ttf")
+# ou nom d'une police du Mac (ex. "Menlo.ttc", "Avenir Next.ttc").
+police = "Menlo.ttc"
+police_index = 0              # style dans un fichier .ttc (voir : python pomodoro.py --lister-styles Menlo.ttc)
+police_variante = ""          # pour une police "variable" : ex. "Bold", "SemiBold"
+taille = 150
+couleur = "#FFFFFF"
+gras = true                  # true = chiffres en gras (vrai style gras si la police en a un)
+chiffres_fixes = true         # chaque chiffre a la même largeur : le compteur ne tremble pas
+
+# Libellé sous les chiffres ({n} = numéro de session, {total} = nombre de sessions)
+police_libelle = ""           # vide = même police que les chiffres
+libelle_index = 0
+libelle_variante = ""
+gras_libelle = false          # true = libellé en gras
+taille_libelle = 44
+couleur_libelle = "#FFFFFF"
+ecart_libelle = 24            # espace entre chiffres et libellé (pixels)
+libelle_preparation = "GET READY"
+libelle_travail = "FOCUS {n}/{total}"
+libelle_pause = "BREAK"
+libelle_pause_longue = "PAUSE LONGUE"
+libelle_fin = "WELL DONE"       # mettre "" pour masquer un libellé
+
+[sons]
+volume = 0.6                  # 0.0 à 1.0
+au_demarrage = true           # bip au tout début de la vidéo
+# "integre:preparation", "integre:travail", "integre:pause", "integre:fin", un fichier (ex. "sons/cloche.mp3") ou "" (aucun son)
+debut_preparation = "integre:preparation"
+debut_travail = "integre:travail"
+debut_pause = "integre:pause"
+fin = "integre:fin"

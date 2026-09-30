@@ -1,0 +1,19 @@
+[project]
+name = "pomodoro-timer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Guillaume Koessler", email = "guillaume.koessler@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24",
+    "pillow>=10.0",
+]
+
+[project.scripts]
+pomodoro-timer = "pomodoro_timer:main"
+
+[tool.uv]
+package = false
